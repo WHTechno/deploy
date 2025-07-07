@@ -51,14 +51,14 @@ export default function Bind() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-white mb-2">Account Binding 🔗</h1>
-          <p className="text-white/60">Connect your social accounts to unlock additional features and rewards</p>
+          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Account Binding 🔗</h1>
+          <p className="text-white/80 drop-shadow">Connect your social accounts to unlock additional features and rewards</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Binding Form */}
           <Card3D className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center drop-shadow">
               <span className="mr-3">📧</span>
               Connect Your Accounts
             </h2>
@@ -66,7 +66,7 @@ export default function Bind() {
             <div className="space-y-6">
               {/* Email Binding */}
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block text-white/90 text-sm font-medium mb-2">
                   Email Address *
                 </label>
                 <div className="relative">
@@ -75,22 +75,22 @@ export default function Bind() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                   />
                   {binded && (
                     <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                      <span className="text-green-400">✓</span>
+                      <span className="text-green-300">✓</span>
                     </div>
                   )}
                 </div>
                 {email && !isValidEmail(email) && (
-                  <p className="text-red-400 text-sm mt-1">Please enter a valid email address</p>
+                  <p className="text-red-300 text-sm mt-1">Please enter a valid email address</p>
                 )}
               </div>
 
               {/* Telegram Binding */}
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block text-white/90 text-sm font-medium mb-2">
                   Telegram Username (Optional)
                 </label>
                 <input
@@ -98,13 +98,13 @@ export default function Bind() {
                   value={telegram}
                   onChange={(e) => setTelegram(e.target.value)}
                   placeholder="@username"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                 />
               </div>
 
               {/* Discord Binding */}
               <div>
-                <label className="block text-white/80 text-sm font-medium mb-2">
+                <label className="block text-white/90 text-sm font-medium mb-2">
                   Discord Username (Optional)
                 </label>
                 <input
@@ -112,7 +112,7 @@ export default function Bind() {
                   value={discord}
                   onChange={(e) => setDiscord(e.target.value)}
                   placeholder="username#1234"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
                 />
               </div>
 
@@ -129,10 +129,10 @@ export default function Bind() {
               </AnimatedButton>
 
               {binded && (
-                <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg animate-fade-in">
+                <div className="p-4 bg-green-500/20 border border-green-400/30 rounded-lg animate-fade-in backdrop-blur-sm">
                   <div className="flex items-center space-x-2">
-                    <span className="text-green-400">✅</span>
-                    <span className="text-green-400 font-medium">Accounts successfully bound!</span>
+                    <span className="text-green-300">✅</span>
+                    <span className="text-green-300 font-medium">Accounts successfully bound!</span>
                   </div>
                 </div>
               )}
@@ -143,53 +143,53 @@ export default function Bind() {
           <div className="space-y-6">
             {/* Current Wallet */}
             <Card3D className="p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center drop-shadow">
                 <span className="mr-2">👛</span>
                 Connected Wallet
               </h3>
-              <div className="bg-white/5 rounded-lg p-4">
-                <p className="text-white/60 text-sm mb-1">Wallet Address</p>
-                <p className="text-white font-mono text-sm break-all">{address}</p>
+              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm border border-white/20">
+                <p className="text-white/80 text-sm mb-1">Wallet Address</p>
+                <p className="text-white font-mono text-sm break-all drop-shadow">{address}</p>
               </div>
             </Card3D>
 
             {/* Benefits */}
             <Card3D className="p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center drop-shadow">
                 <span className="mr-2">🎁</span>
                 Binding Benefits
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-white/80">Receive important notifications</span>
+                  <span className="text-green-300">✓</span>
+                  <span className="text-white/90">Receive important notifications</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-white/80">Access to exclusive airdrops</span>
+                  <span className="text-green-300">✓</span>
+                  <span className="text-white/90">Access to exclusive airdrops</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-white/80">Priority customer support</span>
+                  <span className="text-green-300">✓</span>
+                  <span className="text-white/90">Priority customer support</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-white/80">Community events access</span>
+                  <span className="text-green-300">✓</span>
+                  <span className="text-white/90">Community events access</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="text-yellow-400">⭐</span>
-                  <span className="text-white/80">+50 bonus points for binding</span>
+                  <span className="text-yellow-300">⭐</span>
+                  <span className="text-white/90">+50 bonus points for binding</span>
                 </div>
               </div>
             </Card3D>
 
             {/* Security Notice */}
             <Card3D className="p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center drop-shadow">
                 <span className="mr-2">🔒</span>
                 Privacy & Security
               </h3>
-              <div className="text-white/70 text-sm space-y-2">
+              <div className="text-white/80 text-sm space-y-2">
                 <p>• Your data is encrypted and stored securely</p>
                 <p>• We never share your information with third parties</p>
                 <p>• You can unbind accounts at any time</p>

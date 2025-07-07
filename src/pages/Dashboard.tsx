@@ -86,8 +86,8 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Welcome Back, Miner! 👋</h1>
-          <p className="text-white/60">Monitor your mining progress and claim your rewards</p>
+          <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Welcome Back, Miner! 👋</h1>
+          <p className="text-white/80 drop-shadow">Monitor your mining progress and claim your rewards</p>
         </div>
 
         {/* Stats Grid */}
@@ -121,15 +121,15 @@ export default function Dashboard() {
           <div className="lg:col-span-2">
             <Card3D className="p-8">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Mining Control Center</h2>
+                <h2 className="text-2xl font-bold text-white mb-4 drop-shadow">Mining Control Center</h2>
                 
                 {/* 3D Mining Visualization */}
                 <div className="relative mb-8">
-                  <div className={`w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-4xl transform transition-all duration-1000 ${miningActive ? 'animate-spin-slow scale-110' : 'scale-100'}`}>
+                  <div className={`w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-400 to-white flex items-center justify-center text-4xl transform transition-all duration-1000 shadow-2xl border border-white/30 ${miningActive ? 'animate-spin-slow scale-110' : 'scale-100'}`}>
                     {miningActive ? '⚡' : '💎'}
                   </div>
                   {miningActive && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 opacity-20 animate-ping"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-white opacity-30 animate-ping"></div>
                   )}
                 </div>
 
@@ -158,13 +158,13 @@ export default function Dashboard() {
 
               {/* Mining Progress */}
               {miningActive && (
-                <div className="mt-8 p-4 bg-white/5 rounded-lg">
+                <div className="mt-8 p-4 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-white/80">Mining Progress</span>
+                    <span className="text-white/90">Mining Progress</span>
                     <span className="text-white font-semibold">Active</span>
                   </div>
-                  <div className="w-full bg-white/10 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full animate-pulse" style={{width: '75%'}}></div>
+                  <div className="w-full bg-white/20 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-blue-400 to-white h-2 rounded-full animate-pulse" style={{width: '75%'}}></div>
                   </div>
                 </div>
               )}
@@ -174,16 +174,16 @@ export default function Dashboard() {
           {/* Activity Log */}
           <div>
             <Card3D className="p-6 h-full">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center drop-shadow">
                 <span className="mr-2">📜</span>
                 Activity Log
               </h3>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {logs.length === 0 ? (
-                  <p className="text-white/60 text-sm">No activity yet</p>
+                  <p className="text-white/70 text-sm">No activity yet</p>
                 ) : (
                   logs.map((log, i) => (
-                    <div key={i} className="text-sm text-white/80 p-2 bg-white/5 rounded-lg animate-fade-in">
+                    <div key={i} className="text-sm text-white/90 p-2 bg-white/10 rounded-lg animate-fade-in backdrop-blur-sm">
                       {log}
                     </div>
                   ))
@@ -196,21 +196,21 @@ export default function Dashboard() {
         {/* Leaderboard */}
         <div className="mt-8">
           <Card3D className="p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center drop-shadow">
               <span className="mr-3">🏆</span>
               Global Leaderboard
             </h3>
             <div className="grid gap-4">
               {leaderboard.length === 0 ? (
-                <p className="text-white/60 text-center py-8">No miners yet. Be the first!</p>
+                <p className="text-white/70 text-center py-8">No miners yet. Be the first!</p>
               ) : (
                 leaderboard.map((entry, i) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-between p-4 rounded-lg transition-all duration-300 hover:scale-105 ${
+                    className={`flex items-center justify-between p-4 rounded-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
                       entry.address === address
-                        ? 'bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30'
-                        : 'bg-white/5 hover:bg-white/10'
+                        ? 'bg-gradient-to-r from-blue-500/30 to-white/20 border border-blue-400/50'
+                        : 'bg-white/10 hover:bg-white/20 border border-white/20'
                     }`}
                   >
                     <div className="flex items-center space-x-4">
@@ -218,20 +218,20 @@ export default function Dashboard() {
                         i === 0 ? 'bg-yellow-500 text-black' :
                         i === 1 ? 'bg-gray-400 text-black' :
                         i === 2 ? 'bg-orange-600 text-white' :
-                        'bg-white/20 text-white'
+                        'bg-white/30 text-white'
                       }`}>
                         {i + 1}
                       </div>
                       <div>
-                        <p className="text-white font-medium">
+                        <p className="text-white font-medium drop-shadow">
                           {entry.address.slice(0, 6)}...{entry.address.slice(-4)}
-                          {entry.address === address && <span className="ml-2 text-purple-400">(You)</span>}
+                          {entry.address === address && <span className="ml-2 text-blue-300">(You)</span>}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-white font-bold">{entry.points.toLocaleString()}</p>
-                      <p className="text-white/60 text-sm">points</p>
+                      <p className="text-white font-bold drop-shadow">{entry.points.toLocaleString()}</p>
+                      <p className="text-white/70 text-sm">points</p>
                     </div>
                   </div>
                 ))
